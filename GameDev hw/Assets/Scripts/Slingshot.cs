@@ -20,6 +20,7 @@ public class Slingshot : MonoBehaviour {
     public bool destroyMode;
 
     public static int score;
+    public int projectileLimit;
 
     void Awake(){
 		//print ("Awake()");
@@ -42,26 +43,28 @@ public class Slingshot : MonoBehaviour {
 	}
 	
 	void OnMouseDown(){
-		//print ("Down");
-
-		// Player pressed mouse while over Slingshot
-		aimingMode = true;
-
-        // Instantiate a projectile
-        projectile = Instantiate(prefabProjectile) as GameObject;
-
-        // Start it at launch position
-        projectile.transform.position = launchPos;
-
-        // Set it to kinematic for now
-        projectile.GetComponent<Rigidbody>().isKinematic = true;
-
-        if (destroyMode)
+		if(projectileLimit != 0)
         {
-            PhysicMaterial mat = projectile.GetComponent<SphereCollider>().material;
-            mat.bounciness = 0;
-            mat.staticFriction = 0;
-            mat.dynamicFriction = 0;
+
+            // Player pressed mouse while over Slingshot
+            aimingMode = true;
+
+            // Instantiate a projectile
+            projectile = Instantiate(prefabProjectile) as GameObject;
+
+            // Start it at launch position
+            projectile.transform.position = launchPos;
+
+            // Set it to kinematic for now
+            projectile.GetComponent<Rigidbody>().isKinematic = true;
+
+            if (destroyMode)
+            {
+                PhysicMaterial mat = projectile.GetComponent<SphereCollider>().material;
+                mat.bounciness = 0;
+                mat.staticFriction = 0;
+                mat.dynamicFriction = 0;
+            }
         }
 	}
 
@@ -104,6 +107,9 @@ public class Slingshot : MonoBehaviour {
 
             TrajectoryLine.enabled = false;
             projectile = null;
+
+            projectileLimit--;
+            destroyMode = false;
         }
     }
 
