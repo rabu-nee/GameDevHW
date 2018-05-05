@@ -64,6 +64,8 @@ public class Slingshot : MonoBehaviour {
                 mat.bounciness = 0;
                 mat.staticFriction = 0;
                 mat.dynamicFriction = 0;
+                mat.bounceCombine = PhysicMaterialCombine.Minimum;
+                mat.frictionCombine = PhysicMaterialCombine.Minimum;
             }
         }
 	}
