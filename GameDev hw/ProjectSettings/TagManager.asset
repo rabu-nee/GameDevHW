@@ -11,6 +11,7 @@ TagManager:
   - Score
   - Coin
   - ProjectileText
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

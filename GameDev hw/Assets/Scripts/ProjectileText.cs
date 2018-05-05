@@ -18,6 +18,6 @@ public class ProjectileText : MonoBehaviour {
 
     private void Update()
     {
-        projectileText.text = sling.projectileLimit + " of " + initLimit + " left";
+        projectileText.text = sling.projectileLimit + " of " + initLimit + " projectiles left";
     }
 }
