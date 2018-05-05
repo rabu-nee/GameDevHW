@@ -15,4 +15,14 @@ public class PauseMenu : MonoBehaviour {
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    public void ContinueButton()
+    {
+        Time.timeScale = 1.0f;
+    }
+
+    public void PauseMenuButton()
+    {
+        Time.timeScale = 0.0f;
+    }
 }

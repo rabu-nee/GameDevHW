@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 73990676}
   - component: {fileID: 73990675}
   - component: {fileID: 73990678}
-  - component: {fileID: 73990679}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -202,6 +201,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1315488608}
+        m_MethodName: PauseMenuButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &73990676
@@ -254,17 +264,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &73990679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 73990673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b003d114082329b46b6c0be8ce74b0d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &86946407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1029,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224515536205045260, guid: 2537d44dda02555408029515fb6bd9f0,
     type: 2}
   m_PrefabInternal: {fileID: 1828210355}
+--- !u!114 &1315488608 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114711095077568094, guid: 2537d44dda02555408029515fb6bd9f0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1828210355}
+  m_Script: {fileID: 11500000, guid: b2d4044f940511146893266623148f70, type: 3}
 --- !u!1 &1415964050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1322,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1599959661}
     m_Modifications:
+    - target: {fileID: 114419602843003142, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 224515536205045260, guid: 2537d44dda02555408029515fb6bd9f0,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1429,6 +1439,46 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419602843003142, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419602843003142, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419602843003142, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1315488608}
+    - target: {fileID: 114419602843003142, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ContinueButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419602843003142, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 95074342857995936, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 95358320794497748, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 95417034261487298, guid: 2537d44dda02555408029515fb6bd9f0,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2537d44dda02555408029515fb6bd9f0, type: 2}
