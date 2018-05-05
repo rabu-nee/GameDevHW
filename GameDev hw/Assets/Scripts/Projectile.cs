@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockDestroy : MonoBehaviour {
+public class Projectile : MonoBehaviour {
 
     public bool destroyMode;
 

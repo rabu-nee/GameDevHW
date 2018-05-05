@@ -10,7 +10,8 @@ public class Slingshot : MonoBehaviour {
 	// Fields set dynamically
 	private GameObject launchPoint;
 	private Vector3 launchPos;
-	private GameObject projectile;
+	public GameObject projectile;
+    private AudioSource source;
 
     public LineRenderer TrajectoryLine;
 
@@ -18,12 +19,15 @@ public class Slingshot : MonoBehaviour {
 
     public bool destroyMode;
 
+    public static int score;
+
     void Awake(){
 		//print ("Awake()");
 		Transform launchPointTrans = transform.Find("LaunchPoint");
 		launchPoint = launchPointTrans.gameObject;
 		launchPoint.SetActive(false);
 		launchPos = launchPointTrans.position;
+        source = GetComponent<AudioSource>();
 	}
 	
 	void OnMouseEnter() {
@@ -87,6 +91,10 @@ public class Slingshot : MonoBehaviour {
         {
             // The mouse has been released
             aimingMode = false;
+
+            //play sound
+            source.Play();
+
             // Fire off the projectile with given velocity
             projectile.GetComponent<Rigidbody>().isKinematic = false;
             projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
@@ -94,12 +102,10 @@ public class Slingshot : MonoBehaviour {
             // Set the Followcam's target to our projectile
             FollowCam.S.poi = projectile;
 
-            // Set the reference to the projectile to null as early as possible
-            projectile = null;
             TrajectoryLine.enabled = false;
-
+            projectile = null;
         }
-	}
+    }
 
     private void DisplayTrajectoryLine()
     {

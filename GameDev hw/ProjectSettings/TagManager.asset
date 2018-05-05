@@ -8,6 +8,8 @@ TagManager:
   - Block
   - Slingshot
   - Crystal
+  - Score
+  - Coin
   layers:
   - Default
   - TransparentFX
