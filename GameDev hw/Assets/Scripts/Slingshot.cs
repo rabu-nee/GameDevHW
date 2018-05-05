@@ -12,6 +12,8 @@ public class Slingshot : MonoBehaviour {
 	private Vector3 launchPos;
 	private GameObject projectile;
 
+    public LineRenderer TrajectoryLine;
+
 	private bool aimingMode;
 
     public bool destroyMode;
@@ -79,6 +81,8 @@ public class Slingshot : MonoBehaviour {
 		// Now move the projectile to this new position
 		projectile.transform.position = launchPos + mouseDelta;
 
+        DisplayTrajectoryLine();
+
         if (Input.GetMouseButtonUp(0))
         {
             // The mouse has been released
@@ -92,12 +96,41 @@ public class Slingshot : MonoBehaviour {
 
             // Set the reference to the projectile to null as early as possible
             projectile = null;
+            TrajectoryLine.enabled = false;
 
         }
 	}
 
-    private Vector2 CalculatePosition(float elapsedTime)
+    private void DisplayTrajectoryLine()
     {
-        return Physics.gravity * elapsedTime * elapsedTime * 0.5f +  * elapsedTime + Vector2.zero;
+        TrajectoryLine.enabled = true;
+        Vector3 v2 = launchPos - projectile.transform.position;
+        int segCount = 15;
+        float segScale = 2;
+        Vector3[] segments = new Vector3[segCount];
+
+        segments[0] = projectile.transform.position;
+
+        Vector3 segVel = new Vector3(v2.x, v2.y, 0) * velocityMult ;
+
+        float angle = Vector3.Angle(segVel, new Vector2(1, 0));
+        float time = segScale / segVel.magnitude;
+
+        for (int i = 1; i < segCount; i++)
+        {
+            float time2 = i * Time.fixedDeltaTime * 5;
+            segments[i] = segments[0] + segVel * time2 + 0.5f * Physics.gravity * Mathf.Pow(time2, 2);
+        }
+
+        TrajectoryLine.positionCount = segCount;
+        for(int i = 0; i < segCount; i++)
+        {
+            TrajectoryLine.SetPosition(i, segments[i]);
+        }
+    }
+
+    public void backToSling()
+    {
+        FollowCam.S.poi = this.gameObject;
     }
 }

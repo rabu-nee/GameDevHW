@@ -47,6 +47,4 @@ public class FollowCam : MonoBehaviour {
 		// Set OrthographicSize of camera to keep the ground in view
 		this.GetComponent<Camera>().orthographicSize = destination.y + 10;
 	}
-
-
 }
