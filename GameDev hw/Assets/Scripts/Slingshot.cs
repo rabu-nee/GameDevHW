@@ -60,12 +60,14 @@ public class Slingshot : MonoBehaviour {
 
             if (destroyMode)
             {
-                PhysicMaterial mat = projectile.GetComponent<SphereCollider>().material;
-                mat.bounciness = 0;
-                mat.staticFriction = 0;
-                mat.dynamicFriction = 0;
-                mat.bounceCombine = PhysicMaterialCombine.Minimum;
-                mat.frictionCombine = PhysicMaterialCombine.Minimum;
+                PhysicMaterial pMat = projectile.GetComponent<SphereCollider>().material;
+                pMat.bounciness = 0;
+                pMat.staticFriction = 0;
+                pMat.dynamicFriction = 0;
+                pMat.bounceCombine = PhysicMaterialCombine.Minimum;
+                pMat.frictionCombine = PhysicMaterialCombine.Minimum;
+                Material mat = projectile.GetComponent<MeshRenderer>().material;
+                mat.EnableKeyword("_EMISSION");
             }
         }
 	}
