@@ -6,10 +6,12 @@ public class Coin : MonoBehaviour {
 
     private AudioSource[] source;
     private AudioSource coinS, hitS;
+    private Score score;
 
 
     private void Awake()
     {
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
         source = GetComponents<AudioSource>();
         coinS = source[0];
         hitS = source[1];
@@ -19,7 +21,8 @@ public class Coin : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            Slingshot.score++;
+            score.score++;
+            score.coinsLeft--;
             coinS.Play();
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
@@ -27,6 +30,7 @@ public class Coin : MonoBehaviour {
         }
         else if (collision.gameObject.CompareTag("Block"))
         {
+            score.coinsLeft--;
             hitS.Play();
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CapsuleCollider>().enabled = false;

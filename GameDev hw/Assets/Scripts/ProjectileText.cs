@@ -13,11 +13,11 @@ public class ProjectileText : MonoBehaviour {
     {
         projectileText = GameObject.FindGameObjectWithTag("ProjectileText").GetComponent<Text>();
         sling = GameObject.FindGameObjectWithTag("Slingshot").GetComponent<Slingshot>();
-        initLimit = sling.projectileLimit;        
+        initLimit = sling.projectileLeft;        
     }
 
     private void Update()
     {
-        projectileText.text = sling.projectileLimit + " of " + initLimit + " projectiles left";
+        projectileText.text = sling.projectileLeft + " of " + initLimit + " projectiles left";
     }
 }

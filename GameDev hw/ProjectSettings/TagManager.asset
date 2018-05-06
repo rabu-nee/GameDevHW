@@ -12,6 +12,9 @@ TagManager:
   - Coin
   - ProjectileText
   - PauseMenu
+  - Star
+  - LevelFinish
+  - CurrentLevelText
   layers:
   - Default
   - TransparentFX

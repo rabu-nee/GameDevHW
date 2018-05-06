@@ -19,8 +19,7 @@ public class Slingshot : MonoBehaviour {
 
     public bool destroyMode;
 
-    public static int score;
-    public int projectileLimit;
+    public int projectileLeft;
 
     void Awake(){
 		//print ("Awake()");
@@ -43,7 +42,7 @@ public class Slingshot : MonoBehaviour {
 	}
 	
 	void OnMouseDown(){
-		if(projectileLimit != 0)
+		if(projectileLeft != 0)
         {
 
             // Player pressed mouse while over Slingshot
@@ -112,7 +111,7 @@ public class Slingshot : MonoBehaviour {
             TrajectoryLine.enabled = false;
             projectile = null;
 
-            projectileLimit--;
+            projectileLeft--;
             destroyMode = false;
         }
     }
