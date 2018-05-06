@@ -209,7 +209,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6bf0811f2a2104116aa5f09a767fb649, type: 2}
+  - {fileID: 2100000, guid: 3e1d9884eb8d64a4785377c69bbb8ad0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,7 +243,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6bf0811f2a2104116aa5f09a767fb649, type: 2}
+  - {fileID: 2100000, guid: 3e1d9884eb8d64a4785377c69bbb8ad0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -277,7 +277,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6bf0811f2a2104116aa5f09a767fb649, type: 2}
+  - {fileID: 2100000, guid: 3e1d9884eb8d64a4785377c69bbb8ad0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -327,7 +327,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d60a84f34e8d48309cd3fb190e66a8e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0fc02b7ed11b44d859c274dea7da187d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -414,7 +414,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   TrajectoryLine: {fileID: 120707808867427246}
   destroyMode: 0
-  projectileLimit: 5
+  projectileLeft: 5
 --- !u!120 &120707808867427246
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -422,14 +422,14 @@ LineRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959358593993478}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b83013f1637fe4e7593629b75028fefd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

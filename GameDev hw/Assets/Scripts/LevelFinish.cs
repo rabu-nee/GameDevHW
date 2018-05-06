@@ -9,6 +9,7 @@ public class LevelFinish : MonoBehaviour {
     public static GameObject panel;
     public static GameObject[] stars;
 
+
     public Text currentLevelText;
 
 	// Use this for initialization

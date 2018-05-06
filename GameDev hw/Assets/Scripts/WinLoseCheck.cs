@@ -7,10 +7,14 @@ public class WinLoseCheck : MonoBehaviour {
     private Slingshot sling;
     private Score score;
 
+    private GameObject mUI;
+
     private void Awake()
     {
         sling = GameObject.FindGameObjectWithTag("Slingshot").GetComponent<Slingshot>();
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
+
+        mUI = GameObject.FindGameObjectWithTag("MainUI");
     }
 
     // Update is called once per frame
@@ -22,6 +26,7 @@ public class WinLoseCheck : MonoBehaviour {
     {
         if((score.score == score.maxCoinNum) || (sling.projectileLeft == 0) || (score.coinsLeft == 0))
         {
+            mUI.SetActive(false);
             LevelFinish.panel.SetActive(true);
             showStars();
         }

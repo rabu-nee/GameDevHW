@@ -64,9 +64,9 @@ public class Slingshot : MonoBehaviour {
                 pMat.staticFriction = 0;
                 pMat.dynamicFriction = 0;
                 pMat.bounceCombine = PhysicMaterialCombine.Minimum;
-                pMat.frictionCombine = PhysicMaterialCombine.Minimum;
+                //pMat.frictionCombine = PhysicMaterialCombine.Minimum;
                 Material mat = projectile.GetComponent<MeshRenderer>().material;
-                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_OutlineColor", Color.magenta);
             }
         }
 	}

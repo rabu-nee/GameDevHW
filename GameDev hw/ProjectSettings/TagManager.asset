@@ -15,6 +15,9 @@ TagManager:
   - Star
   - LevelFinish
   - CurrentLevelText
+  - Drop
+  - Ground
+  - MainUI
   layers:
   - Default
   - TransparentFX
@@ -24,8 +27,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Drop
+  - Projectile
   - 
   - 
   - 
