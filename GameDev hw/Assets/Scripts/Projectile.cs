@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-
-    public bool destroyMode;
+    private bool destMode;
 
     private void Awake()
     {
-        destroyMode = GameObject.FindGameObjectWithTag("Slingshot").GetComponent<Slingshot>().destroyMode;
+        destMode = Slingshot.destroyMode;
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (destroyMode)
+        if (destMode)
         {
             if (collision.gameObject.CompareTag("Block"))
             {

@@ -15,9 +15,9 @@ public class Slingshot : MonoBehaviour {
 
     public LineRenderer TrajectoryLine;
 
-	private bool aimingMode;
+	public static bool aimingMode;
 
-    public bool destroyMode;
+    public static bool destroyMode;
 
     public int projectileLeft;
 

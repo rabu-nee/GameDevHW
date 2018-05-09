@@ -8,7 +8,7 @@ public class Crystal : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            GameObject.FindGameObjectWithTag("Slingshot").GetComponent<Slingshot>().destroyMode = true;
+            Slingshot.destroyMode = true;
 
             Destroy(this.gameObject);
         }
