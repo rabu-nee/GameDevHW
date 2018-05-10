@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void LevelSelectionButton()
     {
-        SceneManager.LoadScene("LevelSelection");
+        SceneManager.LoadScene("Start");
     }
 
     public void QuitButton()

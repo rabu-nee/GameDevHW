@@ -18,6 +18,7 @@ TagManager:
   - Drop
   - Ground
   - MainUI
+  - LevelPanel
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinLoseCheck : MonoBehaviour {
 
@@ -37,9 +38,16 @@ public class WinLoseCheck : MonoBehaviour {
         //80% of coins collected = 3 stars
         if(score.score >= (score.maxCoinNum * 0.80))
         {
-            foreach(GameObject star in LevelFinish.stars)
+
+            foreach (GameObject star in LevelFinish.stars)
             {
                 star.SetActive(true);
+            }
+
+            if (LevelManager.starsInLevel[LevelManager.selectedLevelIndex] < 3)
+            {
+                LevelManager.starsInLevel[LevelManager.selectedLevelIndex] = 3;
+                Debug.Log("a");
             }
         }
 
@@ -48,12 +56,20 @@ public class WinLoseCheck : MonoBehaviour {
         {
             LevelFinish.stars[0].SetActive(true);
             LevelFinish.stars[1].SetActive(true);
+            if(LevelManager.starsInLevel[LevelManager.selectedLevelIndex] < 2)
+            {
+                LevelManager.starsInLevel[LevelManager.selectedLevelIndex] = 2;
+            }
         }
 
         //25% of coins collected = 1 stars
         if (score.score >= (score.maxCoinNum * 0.25))
         {
             LevelFinish.stars[0].SetActive(true);
+            if (LevelManager.starsInLevel[LevelManager.selectedLevelIndex] < 1)
+            {
+                LevelManager.starsInLevel[LevelManager.selectedLevelIndex] = 1;
+            }
         }
     }
 }
