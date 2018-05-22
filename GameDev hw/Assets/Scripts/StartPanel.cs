@@ -9,57 +9,60 @@ public class StartPanel : MonoBehaviour
     public GameObject[] stars;
 
     public Text currentLevelText;
+    public int selectedLevelIndex;
 
 
     private void Awake()
     {
         stars = GameObject.FindGameObjectsWithTag("Star");
         currentLevelText = GameObject.FindGameObjectWithTag("CurrentLevelText").GetComponent<Text>();
+        selectedLevelIndex = 1;
     }
 
     private void Update()
     {
-        currentLevelText.text = "Level " + LevelManager.selectedLevelIndex;
-        ShowStars(LevelManager.selectedLevelIndex);
+        currentLevelText.text = "Level " + selectedLevelIndex;
+        ShowStars(selectedLevelIndex);
     }
 
     public void LoadSelectedLevel()
     {
-        SceneManager.LoadScene("Level " + LevelManager.selectedLevelIndex);
+        SceneManager.LoadScene("Level " + selectedLevelIndex);
     }
 
     public void SelectNextLevel()
     {
-        if (LevelManager.selectedLevelIndex < SceneManager.sceneCountInBuildSettings)
+        if (selectedLevelIndex < SceneManager.sceneCountInBuildSettings)
         {
-            LevelManager.selectedLevelIndex++;
+            selectedLevelIndex++;
         }
-        if (LevelManager.selectedLevelIndex == SceneManager.sceneCountInBuildSettings)
+        if (selectedLevelIndex == SceneManager.sceneCountInBuildSettings)
         {
-            LevelManager.selectedLevelIndex = 1;
+            selectedLevelIndex = 1;
         }
     }
 
     public void SelectPreviousLevel()
     {
-        if (LevelManager.selectedLevelIndex == 1)
+        if (selectedLevelIndex == 1)
         {
-            LevelManager.selectedLevelIndex = SceneManager.sceneCountInBuildSettings;
+            selectedLevelIndex = SceneManager.sceneCountInBuildSettings;
         }
-        if (LevelManager.selectedLevelIndex <= SceneManager.sceneCountInBuildSettings)
+        if (selectedLevelIndex <= SceneManager.sceneCountInBuildSettings)
         {
-            LevelManager.selectedLevelIndex--;
+            selectedLevelIndex--;
         }
     }
 
     private void ShowStars(int sel)
     {
-        switch (LevelManager.starsInLevel[sel])
+        switch (PlayerPrefs.GetInt("Level " + selectedLevelIndex))
         {
             case 0:
                 foreach (GameObject star in stars)
                 {
                     star.SetActive(false);
+                    Debug.Log("0 stars");
                 }
                 break;
 
@@ -67,12 +70,14 @@ public class StartPanel : MonoBehaviour
                 stars[0].SetActive(true);
                 stars[1].SetActive(false);
                 stars[2].SetActive(false);
+                Debug.Log("1 stars");
                 break;
 
             case 2:
                 stars[0].SetActive(true);
                 stars[1].SetActive(true);
                 stars[2].SetActive(false);
+                Debug.Log("2 stars");
                 break;
 
             case 3:
@@ -80,7 +85,13 @@ public class StartPanel : MonoBehaviour
                 {
                     star.SetActive(true);
                 }
+                Debug.Log("3 stars");
                 break;
         }
+    }
+
+    public void deletePrefs()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

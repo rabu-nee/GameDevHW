@@ -6,7 +6,7 @@ public class CameraTouch : MonoBehaviour
 {
     private Vector3 ResetCamera;
     private Vector3 Origin;
-    private Vector3 Diference;
+    private Vector3 Difference;
     public static bool Drag = false;
     void Start()
     {
@@ -18,7 +18,7 @@ public class CameraTouch : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                Diference = (Camera.main.ScreenToWorldPoint(Input.mousePosition)) - Camera.main.transform.position;
+                Difference = (Camera.main.ScreenToWorldPoint(Input.mousePosition)) - Camera.main.transform.position;
                 if (Drag == false)
                 {
                     Drag = true;
@@ -30,10 +30,12 @@ public class CameraTouch : MonoBehaviour
             {
                 Drag = false;
             }
+
             if (Drag == true)
             {
-                Camera.main.transform.position = Origin - Diference;
+                Camera.main.transform.position = Origin - Difference;
             }
+
             //RESET CAMERA TO STARTING POSITION WITH RIGHT CLICK
             if (Input.GetMouseButton(1))
             {

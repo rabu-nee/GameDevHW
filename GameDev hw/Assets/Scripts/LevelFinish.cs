@@ -33,4 +33,9 @@ public class LevelFinish : MonoBehaviour {
         panel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

@@ -43,12 +43,17 @@ public class WinLoseCheck : MonoBehaviour {
             {
                 star.SetActive(true);
             }
+            if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name) < 3)
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 3);
+            }
 
+            /*
             if (LevelManager.starsInLevel[LevelManager.selectedLevelIndex] < 3)
             {
                 LevelManager.starsInLevel[LevelManager.selectedLevelIndex] = 3;
-                Debug.Log("a");
             }
+            */
         }
 
         //50% of coins collected = 2 stars
@@ -56,20 +61,36 @@ public class WinLoseCheck : MonoBehaviour {
         {
             LevelFinish.stars[0].SetActive(true);
             LevelFinish.stars[1].SetActive(true);
-            if(LevelManager.starsInLevel[LevelManager.selectedLevelIndex] < 2)
+
+            if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name) < 2)
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 2);
+            }
+
+            /*
+             * if (LevelManager.starsInLevel[LevelManager.selectedLevelIndex] < 2)
             {
                 LevelManager.starsInLevel[LevelManager.selectedLevelIndex] = 2;
             }
+            */
         }
 
         //25% of coins collected = 1 stars
         if (score.score >= (score.maxCoinNum * 0.25))
         {
             LevelFinish.stars[0].SetActive(true);
+
+            if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name) < 1)
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
+            }
+
+            /*
             if (LevelManager.starsInLevel[LevelManager.selectedLevelIndex] < 1)
             {
                 LevelManager.starsInLevel[LevelManager.selectedLevelIndex] = 1;
             }
+            */
         }
     }
 }
