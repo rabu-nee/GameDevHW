@@ -30,6 +30,12 @@ public class StartPanel : MonoBehaviour
         SceneManager.LoadScene("Level " + selectedLevelIndex);
     }
 
+    public void QuitButton()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
+
     public void SelectNextLevel()
     {
         if (selectedLevelIndex < SceneManager.sceneCountInBuildSettings)
