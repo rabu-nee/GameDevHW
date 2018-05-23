@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114381683831501760}
   - component: {fileID: 95875188708852328}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: Next Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,6 +222,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95579300370078200
 Animator:
   serializedVersion: 3
@@ -239,6 +240,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95875188708852328
 Animator:
   serializedVersion: 3
@@ -256,6 +258,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114106655538432730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -352,7 +355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit Game
+  m_Text: Next Level
 --- !u!114 &114158911773237504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,8 +521,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: QuitButton
+      - m_Target: {fileID: 114145908245875602}
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

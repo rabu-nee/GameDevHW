@@ -10,7 +10,7 @@ public class LevelFinish : MonoBehaviour {
     public static GameObject[] stars;
 
 
-    public Text currentLevelText;
+    private Text currentLevelText;
 
 	// Use this for initialization
 	void Awake () {

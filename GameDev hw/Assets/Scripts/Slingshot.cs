@@ -19,6 +19,8 @@ public class Slingshot : MonoBehaviour {
 
     public static bool destroyMode;
 
+    public GameObject particle;
+
     public int projectileLeft;
 
     void Awake(){
@@ -28,7 +30,9 @@ public class Slingshot : MonoBehaviour {
 		launchPoint.SetActive(false);
 		launchPos = launchPointTrans.position;
         source = GetComponent<AudioSource>();
-	}
+        destroyMode = false;
+
+    }
 	
 	void OnMouseEnter() {
 		//print ("Enter");
@@ -57,6 +61,9 @@ public class Slingshot : MonoBehaviour {
             // Set it to kinematic for now
             projectile.GetComponent<Rigidbody>().isKinematic = true;
 
+            particle = projectile.transform.GetChild(0).gameObject;
+            particle.SetActive(false);
+
             if (destroyMode)
             {
                 PhysicMaterial pMat = projectile.GetComponent<SphereCollider>().material;
@@ -67,6 +74,7 @@ public class Slingshot : MonoBehaviour {
                 //pMat.frictionCombine = PhysicMaterialCombine.Minimum;
                 Material mat = projectile.GetComponent<MeshRenderer>().material;
                 mat.SetColor("_OutlineColor", Color.magenta);
+                particle.SetActive(true);
             }
         }
 	}

@@ -19,6 +19,7 @@ TagManager:
   - Ground
   - MainUI
   - LevelPanel
+  - ExtraBullet
   layers:
   - Default
   - TransparentFX
